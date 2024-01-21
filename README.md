@@ -6,9 +6,14 @@ Jak zacząć:
 Sklonuj repozytorium: git clone https://github.com/twoernd/LagasinAPI.git
 Uruchom projekt w środowisku ASP.NET Core.
 
-Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych w folderze Data/ApplicationDbContext.cs należy dostosować połączenie z swoją bazą: string connectionString = "Tu podajesz parametry";
-
+Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych w folderze Data/ApplicationDbContext.cs należy dostosować połączenie z swoją bazą: 
+string connectionString = "Data Source=TU DAJESZ SWÓJ SERVER;Initial Catalog=bazaLagasin;Integrated Security=True";
+I teraz za pomocą SQL SERVER MANAGMENT STUDIO importujesz baze która znajduje się w folderze Data/bazaLagasin.bacpac.
+Należy zobaczyć czy pakiety nuget działają poprawnie.
+Teraz możesz uruchomić projekt.
+Jeśli coś nie działa spróbuj dodać nową migracje i zaktualizować bazę :) add-migarion nazwa, update-database
 Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych powyżej.
+
 
 Wymagania:
 ASP.NET Core 3.1 lub nowszy.
