@@ -2,9 +2,12 @@ LagasinAPI - Krótki Opis
 LagasinAPI to prosty system e-commerce API, stworzony w środowisku ASP.NET Core, obsługujący podstawowe operacje związane z produktami, użytkownikami i zamówieniami. Poniżej znajdziesz krótki opis funkcji oraz jak zacząć korzystać z API.
 
 Jak zacząć:
+
 Sklonuj repozytorium: git clone https://github.com/twoernd/LagasinAPI.git
 Uruchom projekt w środowisku ASP.NET Core.
+
 Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych w folderze Data/ApplicationDbContext.cs należy dostosować połączenie z swoją bazą: string connectionString = "Tu podajesz parametry";
+
 Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych powyżej.
 
 Wymagania:
