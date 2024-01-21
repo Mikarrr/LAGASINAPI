@@ -14,6 +14,12 @@ Teraz możesz uruchomić projekt.
 Jeśli coś nie działa spróbuj dodać nową migracje i zaktualizować bazę :) add-migarion nazwa, update-database
 Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych powyżej.
 
+Konto admina - jest tylko jeden admin:
+karwacki.mikolaj123@gmail.com
+Qwer1234#
+
+Po zarejestrowaniu należy potwierdżić konto linkiem wysłanym na adres email :)
+Domyslnie konto tworzy się jako user
 
 Wymagania:
 ASP.NET Core 3.1 lub nowszy.
