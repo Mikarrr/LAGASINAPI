@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  padding-top: 5em;
+}
+
+.containerLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+}
+
+h2 {
+  margin-bottom: 50px;
+  color: white;
+}
+form {
+  width: 30%;
+}
+.form-group {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.form-group-checkForm {
+  margin-bottom: 20px;
+  text-align: left;
+  display: flex;
+}
+
+label {
+  display: block;
+  color: white;
+  font-family: Montserrat;
+}
+
+.switch-item {
+  margin-top: -3.2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background-color: black;
+  border: none;
+  border-bottom: solid 1px white;
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  border: solid 1px white;
+  padding: 0.625em;
+  font-size: 0.875em;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+.login {
+  margin-top: 20px;
+}
+.login a {
+  color: white;
+  text-decoration: none;
+  font-family: Montserrat;
+}
+/* Main-Footer*/
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  margin: 0 auto;
+}
+footer {
+  background-color: black;
+  color: #fff;
+  padding: 40px;
+}
+.social-media {
+  text-align: center;
+  margin-bottom: 20px;
+  grid-row: 1;
+  grid-column: 2;
+}
+.privacy-policy {
+  text-align: center;
+  margin-bottom: 20px;
+  grid-row: 1;
+  grid-column: 1;
+}
+.returns-delivery {
+  text-align: center;
+  margin-bottom: 20px;
+  grid-row: 1;
+  grid-column: 3;
+}
+.footer-container p {
+  text-align: center;
+  grid-row: 2;
+  grid-column-start: span 3;
+  margin-top: 40px;
+}
+.social-media a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 20px;
+}
+.returns-delivery a {
+  color: #fff;
+  text-decoration: none;
+}
+.privacy-policy a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.switch-item {
+  display: block;
+}
+.switch-item .label {
+  margin-left: 4px;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #000;
+}
+.switch-item .control[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 34px;
+  height: 20px;
+  padding: 3px;
+  margin-left: 10px;
+  border-radius: 34px;
+  background-color: #aaa;
+  vertical-align: middle;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.1, 1.4);
+}
+.switch-item .control[type="checkbox"]:after {
+  content: "";
+  position: relative;
+  display: block;
+  left: 0;
+  width: 60.9%;
+  height: 100%;
+  border-radius: 28px;
+  background-color: #fff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    padding 0.3s ease, margin 0.3s ease;
+  box-sizing: content-box;
+}
+.switch-item .control[type="checkbox"]:active:after {
+  padding-right: 8px;
+}
+.switch-item .control[type="checkbox"]:checked {
+  background-color: rgb(63, 63, 63);
+}
+.switch-item .control[type="checkbox"]:checked:after {
+  left: 39.1%;
+}
+.switch-item .control[type="checkbox"]:checked:active:after {
+  margin-left: -8px;
+}
+.switch-item .control[type="checkbox"] ~ .label:before {
+  content: "OFF";
+}
+.switch-item .control[type="checkbox"]:checked ~ .label:before {
+  content: "ON";
+}
+.switch-item .control[type="checkbox"]:disabled {
+  opacity: 0.3;
+}
+.switch-item .control[type="checkbox"]:disabled:active:after {
+  padding-right: 0;
+  margin-left: 0;
+}
+
+.my-account-panel {
+  display: grid;
+  height: 1000px;
+}
+.back_to_list {
+  font-weight: 100;
+  font-size: 0.875em;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  border: solid 1px white;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+  transition: background-color 0.5s, color 0.5s;
+}

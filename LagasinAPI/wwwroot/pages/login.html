@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main_style.css" />
+    <link rel="stylesheet" href="../styles/login_register.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <title>LUIS DE LAGASIN</title>
+</head>
+<body>
+    <div class="cursor changeIndex"></div>
+    <div class="dot_cursor"></div>
+    <div id="preloader" class="preloader"></div>
+    <header class="header">
+        <nav class="navbar">
+            <h1>LUIS DE LAGASIN</h1>
+            <ul class="list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="./shop.html">SHOP</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <ul class="list_login">
+                <li>
+                    <a href="./login.html" class="cart_button">SIGN IN</a>
+                </li>
+                <li>
+                    <a href="./shoppingCart.html" class="cart_button">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="icon_ham">
+                <button class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="containerLogin animate__animated animate__fadeInUp">
+            
+            <form id="loginForm" method="POST">
+                <div id="success_message"></div>
+                <div id="error_message"></div>
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <br />
+                <button type="submit">Sign in</button>
+                <div class="login">
+                    <a href="./register.html">Don't have an account? Sign up.</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© Luis de Lagasin</p>
+        <a href="#">deskar</a>
+    </footer>
+</body>
+
+<script src="../scripts/menu.js"></script>
+
+<script src="../scripts/loader.js"></script>
+
+<script src="../scripts/cursor.js"></script>
+
+<script src="../api_connect/login_con.js"></script>
+</html>

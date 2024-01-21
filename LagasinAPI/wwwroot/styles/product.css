@@ -1,0 +1,129 @@
+.product_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.product_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: all 1s ease-in-out;
+  background-color: white;
+  width:30%;
+}
+.product_img img {
+  height: 100vh;
+}
+.product_description {
+  height: 100vh;
+  width: 70%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 6em;
+  padding-right: 12em;
+}
+.product_description h2 {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.product_select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.product_select select, .product_select input {
+    width: 50px;
+}
+
+    
+.product_description p {
+    font-family: Montserrat;
+    font-weight: 300;
+    font-size: 1em;
+}
+.product_description .size_option {
+  margin-top: 2em;
+  display: flex;
+  gap: 2em;
+}
+.size {
+  font-family: Montserrat;
+  position: relative;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.3em;
+  padding-bottom: 0.2em;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid white;
+  border-radius: 1em;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.size:hover {
+  background-color: white;
+  color: black;
+}
+input[type="radio"],
+input[type="submit"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .size {
+  background-color: white;
+  color: black;
+}
+
+.submit {
+  margin-top: 5em;
+}
+
+.submit_label {
+  margin-top: 40px;
+  font-family: Montserrat;
+  position: relative;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid white;
+  border-radius: 3em;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  width: 150px;
+}
+.submit_label:hover {
+  background-color: white !important;
+  color: black !important;
+}
+
+#size {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 1em;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/* Stylowanie dla input */
+#quantity {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 1em;
+    padding: 5px;
+}
