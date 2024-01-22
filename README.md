@@ -1,73 +1,151 @@
-LagasinAPI - Krótki Opis
-LagasinAPI to prosty system e-commerce API, stworzony w środowisku ASP.NET Core, obsługujący podstawowe operacje związane z produktami, użytkownikami i zamówieniami. Poniżej znajdziesz krótki opis funkcji oraz jak zacząć korzystać z API.
+<!DOCTYPE html>
+<html lang="en">
 
-Jak zacząć:
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagasinAPI - Opis</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
 
-Sklonuj repozytorium
-Uruchom projekt w środowisku ASP.NET Core.
+    h1,
+    h2,
+    h3 {
+      color: #333;
+    }
 
-Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych w folderze Data/ApplicationDbContext.cs należy dostosować połączenie z swoją bazą: 
-string connectionString = "Data Source=TU DAJESZ SWÓJ SERVER;Initial Catalog=bazaLagasin;Integrated Security=True";
-I teraz za pomocą SQL SERVER MANAGMENT STUDIO importujesz baze która znajduje się w folderze Data/bazaLagasin.bacpac.
-Należy zobaczyć czy pakiety nuget działają poprawnie.
-Teraz możesz uruchomić projekt.
-Jeśli coś nie działa spróbuj dodać nową migracje i zaktualizować bazę :) add-migarion nazwa, update-database
-Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych powyżej.
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border: 1px solid #ddd;
+    }
 
-Konto admina - jest tylko jeden admin:
-karwacki.mikolaj123@gmail.com
-Qwer1234#
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      overflow-x: auto;
+    }
 
-Po zarejestrowaniu należy potwierdżić konto linkiem wysłanym na adres email :)
-Domyslnie konto tworzy się jako user
+    a {
+      color: #007acc;
+    }
 
-Wymagania:
-ASP.NET Core 3.1 lub nowszy.
-Visual Studio (lub inne środowisko obsługujące ASP.NET Core).
-Uwaga: Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych, dostęp do serwera poczty itp. Przeczytaj kod i dostosuj go do swoich potrzeb.
+    ul,
+    ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>LagasinAPI - Krótki Opis</h1>
+
+  <p>LagasinAPI to prosty system e-commerce API, stworzony w środowisku ASP.NET Core, obsługujący podstawowe operacje związane z produktami, użytkownikami i zamówieniami.</p>
+
+  <h2>Jak zacząć:</h2>
+
+  <ol>
+    <li>Sklonuj repozytorium</li>
+    <li>Uruchom projekt w środowisku ASP.NET Core.</li>
+    <li>Dostosuj konfigurację, taką jak połączenie z bazą danych w pliku <code>Data/ApplicationDbContext.cs</code>.</li>
+    <li>Uruchom aplikację i dostosuj bazę danych przy użyciu SQL Server Management Studio.</li>
+    <li>Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych poniżej.</li>
+  </ol>
+
+  <h3>Wymagania:</h3>
+
+  <ul>
+    <li>ASP.NET Core 3.1 lub nowszy.</li>
+    <li>Visual Studio (lub inne środowisko obsługujące ASP.NET Core).</li>
+  </ul>
+
+  <p>Uwaga: Aplikacja wymaga dostosowania konfiguracji, takiej jak połączenie z bazą danych, dostęp do serwera poczty itp. Przeczytaj kod i dostosuj go do swoich potrzeb.</p>
+
+  <h2>Zaloguj się jako administrator:</h2>
+
+<p>Konto admina - jest tylko jeden admin:</p>
+
+<ul>
+  <li>E-mail: <code>karwacki.mikolaj123@gmail.com</code></li>
+  <li>Hasło: <code>Qwer1234#</code></li>
+</ul>
+
+<p>Po zarejestrowaniu należy potwierdzić konto linkiem wysłanym na adres email :)</p>
+
+<p>Domyślnie konto tworzy się jako użytkownik.</p>
+
+  <h2>Funkcje API:</h2>
+
+  <h3>ProductController:</h3>
+
+  <p><strong>Przeglądanie Produktów:</strong></p>
+
+  <ul>
+    <li><code>/api/products/view</code> - Przeglądanie wszystkich produktów.</li>
+    <li><code>/api/products/view(id)</code> - Przeglądanie konkretnego produktu po ID.</li>
+    <li><code>/api/products/view(category)</code> - Przeglądanie produktów według kategorii.</li>
+  </ul>
+
+  <p><strong>Zarządzanie Produktami:</strong></p>
+
+  <ul>
+    <li><code>/api/products/add</code> - Dodawanie nowych produktów (dostępne tylko dla administratorów).</li>
+    <li><code>/api/products/edit/{editId}/{newName}/{newDesc}/{newPrice}</code> - Edycja istniejących produktów.</li>
+    <li><code>/api/products/delete/{productId}</code> - Usuwanie produktów (dostępne tylko dla administratorów).</li>
+  </ul>
+
+<h3>UserController:</h3>
+
+<p><strong>Rejestracja i Logowanie:</strong></p>
+
+<ul>
+  <li><code>/api/user/register</code> - Rejestracja nowego użytkownika.</li>
+  <li><code>/api/user/login</code> - Logowanie użytkownika.</li>
+</ul>
+
+<p><strong>Zarządzanie Użytkownikami:</strong></p>
+
+<ul>
+  <li><code>/api/user/getall</code> - Przeglądanie listy wszystkich użytkowników (dostępne tylko dla administratorów).</li>
+  <li><code>/api/user/getbyid/{id}</code> - Przeglądanie danych konkretnego użytkownika.</li>
+  <li><code>/api/user/delete/{userId}</code> - Usuwanie użytkownika (dostępne tylko dla administratorów).</li>
+  <li><code>/api/user/edit/{userId}/{newEmail}/{newFirstName}/{newLastName}</code> - Edycja danych użytkownika.</li>
+</ul>
+
+<p><strong>Zarządzanie Sesją i Resetowanie Hasła:</strong></p>
+
+<ul>
+  <li><code>/api/user/verify</code> - Weryfikacja konta poprzez link przesłany e-mailem.</li>
+  <li><code>/api/user/forgot-password</code> - Zgłaszanie zapomnianego hasła.</li>
+  <li><code>/api/user/reset-password</code> - Resetowanie hasła po kliknięciu w link resetujący.</li>
+</ul>
+
+<h3>OrderController:</h3>
+
+<p><strong>Składanie Zamówienia:</strong></p>
+
+<ul>
+  <li><code>/api/orders/place</code> - Składanie zamówienia na podstawie zawartości koszyka.</li>
+</ul>
+
+<p><strong>Historia Zamówień Dla Użytkownika:</strong></p>
+
+<ul>
+  <li><code>/api/orders/userorder/{userId}</code> - Przeglądanie historii zamówień dla konkretnego użytkownika.</li>
+</ul>
 
 
+</body>
 
-
-
-Funkcje API:
-ProductController:
-Przeglądanie Produktów:
-
-/api/products/view - Przeglądanie wszystkich produktów.
-/api/products/view(id) - Przeglądanie konkretnego produktu po ID.
-/api/products/view(category) - Przeglądanie produktów według kategorii.
-Zarządzanie Produktami:
-
-/api/products/add - Dodawanie nowych produktów (dostępne tylko dla administratorów).
-/api/products/edit/{editId}/{newName}/{newDesc}/{newPrice} - Edycja istniejących produktów.
-/api/products/delete/{productId} - Usuwanie produktów (dostępne tylko dla administratorów).
-Zarządzanie Koszykiem:
-
-/api/products/cart - Przeglądanie zawartości koszyka.
-/api/products/addtocart/{productId} - Dodawanie produktów do koszyka.
-/api/products/editcart/{productId}/{newQuantity} - Edycja ilości produktów w koszyku.
-/api/products/removefromcart/{productId} - Usuwanie produktów z koszyka.
-UserController:
-Rejestracja i Logowanie:
-
-/api/user/register - Rejestracja nowego użytkownika.
-/api/user/login - Logowanie użytkownika.
-Zarządzanie Użytkownikami:
-
-/api/user/getall - Przeglądanie listy wszystkich użytkowników (dostępne tylko dla administratorów).
-/api/user/getbyid/{id} - Przeglądanie danych konkretnego użytkownika.
-/api/user/delete/{userId} - Usuwanie użytkownika (dostępne tylko dla administratorów).
-/api/user/edit/{userId}/{newEmail}/{newFirstName}/{newLastName} - Edycja danych użytkownika.
-Zarządzanie Sesją i Resetowanie Hasła:
-
-/api/user/verify - Weryfikacja konta poprzez link przesłany e-mailem.
-/api/user/forgot-password - Zgłaszanie zapomnianego hasła.
-/api/user/reset-password - Resetowanie hasła po kliknięciu w link resetujący.
-OrderController:
-Składanie Zamówienia:
-
-/api/orders/place - Składanie zamówienia na podstawie zawartości koszyka.
-Historia Zamówień Dla Użytkownika:
-
-/api/orders/userorder/{userId} - Przeglądanie historii zamówień dla konkretnego użytkownika.
+</html>
