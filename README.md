@@ -9,7 +9,7 @@
 
 <body>
 
-  <h1>LagasinAPI - Krótki Opis</h1>
+  <h1>LagasinAPI</h1>
 
   <p>LagasinAPI to prosty system e-commerce API, stworzony w środowisku ASP.NET Core, obsługujący podstawowe operacje związane z produktami, użytkownikami i zamówieniami.</p>
 
