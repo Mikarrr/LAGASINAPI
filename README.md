@@ -19,7 +19,7 @@
     <li>Sklonuj repozytorium</li>
     <li>Uruchom projekt w środowisku ASP.NET Core.</li>
     <li>Dostosuj konfigurację, taką jak połączenie z bazą danych w pliku <code>Data/ApplicationDbContext.cs</code>. Przykład: connectionString = "Data Source=TU DAJESZ SWÓJ SERVER;Initial Catalog=bazaLagasin;Integrated Security=True";</li>
-    <li>Za pomocą SQL SERVER MANAGMENT STUDIO importujesz baze która znajduje się w folderze Data/bazaLagasin.bacpac.(UWAGA jest to przykłądowa baza która posiada admina, jeśli stworzyć swoją bazę za pomocą add-migarion i update-database należy przełączyć w pliku <code>lunchSettings.json<code> zawartoś lunchURL na swagger i utworzyć konto administratora.)</li>
+    <li>Za pomocą SQL SERVER MANAGMENT STUDIO importujesz baze która znajduje się w folderze Data/bazaLagasin.bacpac.( UWAGA jest to przykładowa baza która posiada admina, jeśli stworzyć swoją bazę za pomocą add-migarion i update-database należy przełączyć w pliku <code>lunchSettings.json</code> zawartoś lunchURL na swagger i utworzyć konto administratora.)</li>
     <li>Należy zobaczyć czy pakiety nuget działają poprawnie.</li>
     <li>Teraz możesz uruchomić projekt.(jeśli połączenie z bazą nie działa spróbuj dodać migracje i zaktualizować bazę :) )</li>
     <li>Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych poniżej.</li>
