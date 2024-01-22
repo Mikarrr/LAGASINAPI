@@ -68,8 +68,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             console.log(userRole);
             setTimeout(() => {
                 successMessage.style.display = 'none';
-
-                // Check user's role and redirect accordingly
+    
                 if (userRole === 'Administrator') {
                     window.location.href = 'pages_admin/admin_index.html';
                 } 

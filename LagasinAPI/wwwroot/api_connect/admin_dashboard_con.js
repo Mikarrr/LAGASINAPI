@@ -1,5 +1,6 @@
 let jwtToken = localStorage.getItem('jwtToken');
 
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/user/getall', {
         headers: {
