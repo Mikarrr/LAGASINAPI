@@ -666,10 +666,28 @@ p, h2 {
 
 /*user dashbaord*/
 
+.user_dash {
+    display: flex;
+    flex-direction: row;
+    height:90vh;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
 #user-container, #order-container {
     display: flex;
     flex-direction: column;
-    height: 50vh;
     align-items: center;
     justify-content: center;
+    border: 1px solid white;
+ 
+}
+#user-container {
+    padding: 10em;
+}
+#order-container {
+    padding-left: 10em;
+    padding-right: 10em;
+    padding-top: 5em;
+    padding-bottom: 5em;
 }

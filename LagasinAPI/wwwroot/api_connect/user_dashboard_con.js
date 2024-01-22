@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
     const decodedToken = parseJwt(jwtToken);
 
     if (decodedToken) {
@@ -106,8 +104,6 @@ function updateOrderTable(data) {
 
 
 
-
-
 function parseJwt(token) {
     try {
         const base64Url = token.split('.')[1];
@@ -136,63 +132,112 @@ function updateUsersTable(data) {
 }
 
 function editModalUser(userId) {
-    document.getElementById('userModalEdit').style.display = 'flex';
-    currentUserId = userId;
+
+    fetch(`/api/user/getbyid/${userId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwtToken}`,
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`B³¹d HTTP! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Wype³nij pola modala bie¿¹cymi danymi u¿ytkownika
+            document.getElementById('userEmail').value = data.email;
+            document.getElementById('userFirstName').value = data.firstName;
+            document.getElementById('userLastName').value = data.lastName;
+
+            // Poka¿ modal
+            document.getElementById('userModalEdit').style.display = 'flex';
+            currentUserId = userId;
+        })
+        .catch(error => {
+            console.error('B³¹d podczas pobierania danych u¿ytkownika:', error);
+        });
 }
+
 function editUser() {
-
     const editedUser = {
-
         Email: document.getElementById('userEmail').value,
         FirstName: document.getElementById('userFirstName').value,
         LastName: document.getElementById('userLastName').value,
     };
+
+    // SprawdŸ bardziej zaawansowan¹ walidacjê dla pola e-mail
+    if (!isValidEmail(editedUser.Email)) {
+        displayErrorMessage('Invalid email format.');
+        return; // Zatrzymaj dalsze przetwarzanie, jeœli e-mail jest nieprawid³owy
+    }
+
+
+
     console.log("Edit User:", editedUser);
 
-  
+    fetch(`../../api/user/edit/${currentUserId}/${encodeURIComponent(editedUser.Email)}/${editedUser.FirstName}/${editedUser.LastName}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${jwtToken}`
+        },
+    })
+        .then(response => {
+            closeeditModalUser();
+            const decodedToken = parseJwt(jwtToken);
+            if (decodedToken) {
+                const userId = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
 
-        fetch(`../../api/user/edit/${currentUserId}/${encodeURIComponent(editedUser.Email)}/${editedUser.FirstName}/${editedUser.LastName}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${jwtToken}`
-            },
-        })
-            .then(response => {
-                closeeditModalUser()
-                const decodedToken = parseJwt(jwtToken);
-                if (decodedToken) {
-                    const userId = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-
-                    fetch(`/api/user/getbyid/${userId}`, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${jwtToken}`,
-                        },
+                fetch(`/api/user/getbyid/${userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwtToken}`,
+                    },
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
                     })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! Status: ${response.status}`);
-                            }
+                    .then(data => {
+                        console.log(data);
+                        updateUsersTable(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching user data:', error);
+                    });
+            } else {
+                console.error('Error decoding JWT token.');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating user:', error);
+        });
+}
 
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log(data);
-                            updateUsersTable(data);
-                        })
-                        .catch(error => {
-                            console.error('Error fetching user data:', error);
-                        });
-                } else {
-                    console.error('Error decoding JWT token.');
+function isValidEmail(email) {
+    // Wyra¿enie regularne do walidacji adresu e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 
-                }
-            })
-        
+function displayErrorMessage(message) {
+    // Wyœwietl komunikat b³êdu nad formularzem
+    const errorMessageContainer = document.getElementById('error-message');
+    errorMessageContainer.textContent = message;
+    errorMessageContainer.style.display = 'block';
 
-    }
+    // Ukryj komunikat po 4 sekundach
+    setTimeout(() => {
+        errorMessageContainer.textContent = '';
+        errorMessageContainer.style.display = 'none';
+    }, 4000);
+}
 
 
 function closeeditModalUser() {

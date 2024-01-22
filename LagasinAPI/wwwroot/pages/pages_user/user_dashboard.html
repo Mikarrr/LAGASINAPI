@@ -46,11 +46,14 @@
         </nav>
     </header>
     <main>
-        <div id="user-container"></div>
-        <div id="order-container"></div>
+        <div class="user_dash">
+             <div id="user-container"></div>
+            <div id="order-container"></div>
+        </div>
+
         <div id="userModalEdit" class="modal">
             <div class="modal-content">
-
+                <div id="error-message" style="color: white; margin-top: 10px; display: none; padding-bottom: 2em;"></div>
                 <form id="userForm">
                     <label for="userEmail">Email:</label>
                     <input type="text" id="userEmail" name="userName" required>

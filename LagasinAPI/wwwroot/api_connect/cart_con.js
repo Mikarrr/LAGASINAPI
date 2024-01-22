@@ -57,8 +57,8 @@ function renderCart(cart) {
                     <p>Quantity: ${product.quantity}</p>
                     <p>${sizeString}</p>
                     <p>${product.price * product.quantity}</P>
-                    <button onclick="editCartItem(${product.id})">Edit</button>
-                    <button onclick="removeCartItem(${product.id})">Delete</button>
+                    <button class="admin_button" onclick="editCartItem(${product.id})">Edit</button>
+                    <button class="admin_button" onclick="removeCartItem(${product.id})">Delete</button>
                 </div>
             `;
         });

@@ -3,11 +3,15 @@ const animPhotos = document.querySelector(".js-anim-photos");
 const photosContainer = document.querySelector(".js-photos");
 const gallery = document.querySelectorAll(".js-gallery-anim");
 
+const currentPath = window.location.href;
+const isIndexHtmlInPath = currentPath.includes("index.html") && !currentPath.endsWith("index.html");
+const basePath = isIndexHtmlInPath ? "../" : "../../";
+
 const imagePaths = {
-  action1: "../photos/main_img.jpg",
-  action2: "../photos/sec_img.jpg",
-  action3: "../photos/th_img.jpg",
-  action4: "../photos/main_img.jpg",
+  action1: basePath + "photos/main_img.jpg",
+  action2: basePath + "photos/sec_img.jpg",
+  action3: basePath + "photos/th_img.jpg",
+  action4: basePath + "photos/main_img.jpg",
 };
 
 function setGalleryImage(imageUrl, transformValue) {

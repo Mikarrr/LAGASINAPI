@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let currentUserId;
+
+function parseJwt(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(char => {
+            return '%' + ('00' + char.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    } catch (e) {
+        return null;
+    }
+}
 function updateUsersTable(users) {
     var userTableBody = document.getElementById('userTableBody');
     userTableBody.innerHTML = '';
@@ -34,45 +48,72 @@ function updateUsersTable(users) {
 }
 
 function editModalUser(userId) {
-    document.getElementById('userModalEdit').style.display = 'flex';
-    currentUserId = userId;
+
+    fetch(`/api/user/getbyid/${userId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwtToken}`,
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`B³¹d HTTP! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Wype³nij pola modala bie¿¹cymi danymi u¿ytkownika
+            document.getElementById('userEmail').value = data.email;
+            document.getElementById('userFirstName').value = data.firstName;
+            document.getElementById('userLastName').value = data.lastName;
+
+            // Poka¿ modal
+            document.getElementById('userModalEdit').style.display = 'flex';
+            currentUserId = userId;
+        })
+        .catch(error => {
+            console.error('B³¹d podczas pobierania danych u¿ytkownika:', error);
+        });
 }
 function editUser() {
+    const editedUser = {
+        Email: document.getElementById('userEmail').value,
+        FirstName: document.getElementById('userFirstName').value,
+        LastName: document.getElementById('userLastName').value,
+    };
 
-        const editedUser = {
+    if (!isValidEmail(editedUser.Email)) {
+        displayErrorMessage('Invalid email format.');
+        return;
+    }
 
-            Email: document.getElementById('userEmail').value,
-            FirstName: document.getElementById('userFirstName').value, 
-            LastName: document.getElementById('userLastName').value,
-        };
     console.log("Edit User:", editedUser);
 
-    if (editedUser.Email !== null && editedUser.Email.trim() !== '') {
+    fetch(`../../api/user/edit/${currentUserId}/${encodeURIComponent(editedUser.Email)}/${editedUser.FirstName}/${editedUser.LastName}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${jwtToken}`
+        },
+    })
+        .then(response => {
+            closeeditModalUser();
 
-        fetch(`../../api/user/edit/${currentUserId}/${encodeURIComponent(editedUser.Email)}/${editedUser.FirstName}/${editedUser.LastName}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${jwtToken}`
-            },
-        })
-            .then(response => {
-                fetch('/api/user/getall', {
-                    headers: {
-                        Authorization: `Bearer ${jwtToken}`
-                    },
-                })
-                    .then(response => {
-                        return response.json();
-                    })
-                    .then(data => {
-                        closeeditModalUser();
-                        updateUsersTable(data);
-                    })
+            fetch(`/api/user/getall`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${jwtToken}`,
+                },
             })
-                    
-    }
+                .then(response => response.json())
+                .then(data => {
+                    updateUsersTable(data);
+                });
+        });
 }
+
 
 function closeeditModalUser() {
     document.getElementById('userModalEdit').style.display = 'none';
@@ -106,7 +147,24 @@ function deleteUser(userId) {
 }
 
                 
+function isValidEmail(email) {
+    // Wyra¿enie regularne do walidacji adresu e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 
+function displayErrorMessage(message) {
+    // Wyœwietl komunikat b³êdu nad formularzem
+    const errorMessageContainer = document.getElementById('error-message');
+    errorMessageContainer.textContent = message;
+    errorMessageContainer.style.display = 'block';
+
+    // Ukryj komunikat po 4 sekundach
+    setTimeout(() => {
+        errorMessageContainer.textContent = '';
+        errorMessageContainer.style.display = 'none';
+    }, 4000);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/products/view', {
