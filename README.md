@@ -9,19 +9,19 @@
 
 <body>
 
-  <h1>LagasinAPI - Krótki Opis</h1>
+  <h1>LagasinAPI</h1>
 
   <p>LagasinAPI to prosty system e-commerce API, stworzony w środowisku ASP.NET Core, obsługujący podstawowe operacje związane z produktami, użytkownikami i zamówieniami.</p>
 
   <h2>Jak zacząć:</h2>
 
   <ol>
-    <li>Sklonuj repozytorium</li>
-    <li>Uruchom projekt w środowisku ASP.NET Core.</li>
-    <li>Dostosuj konfigurację, taką jak połączenie z bazą danych w pliku <code>Data/ApplicationDbContext.cs</code>. Przykład: connectionString = "Data Source=TU DAJESZ SWÓJ SERVER;Initial Catalog=bazaLagasin;Integrated Security=True";</li>
+    <li>Pobierz repozytorium w formacie ZIP i rozpakuj</li>
+    <li>Pobierz SQL SERVER oraz SQL SERVER MANAGMENT STUDIO.</li>
     <li>Za pomocą SQL SERVER MANAGMENT STUDIO importujesz baze która znajduje się w folderze Data/bazaLagasin.bacpac.( UWAGA jest to przykładowa baza która posiada admina, jeśli stworzyć swoją bazę za pomocą add-migarion i update-database należy przełączyć w pliku <code>lunchSettings.json</code> zawartoś lunchURL na swagger i utworzyć konto administratora.)</li>
+    <li>Dostosuj konfigurację, taką jak połączenie z bazą danych w pliku <code>Data/ApplicationDbContext.cs</code>. Przykład: connectionString = "Data Source=TU DAJESZ SWÓJ SERVER;Initial Catalog=bazaLagasin;Integrated Security=True";</li>
     <li>Należy zobaczyć czy pakiety nuget działają poprawnie.</li>
-    <li>Teraz możesz uruchomić projekt.(jeśli połączenie z bazą nie działa spróbuj dodać migracje i zaktualizować bazę :) )</li>
+    <li>Teraz możesz uruchomić projekt.Jeśli połączenie z bazą nie działa spróbuj dodać migracje i zaktualizować bazę :) </li>
     <li>Sprawdź dokumentację API w kodzie lub korzystaj z Endpointów opisanych poniżej.</li>
   </ol>
 
@@ -39,11 +39,17 @@
 <p>Konto admina - jest tylko jeden admin:</p>
 
 <ul>
-  <li>E-mail: <code>karwacki.mikolaj123@gmail.com</code></li>
+  <li>E-mail: <code>admin@admin.pl</code></li>
   <li>Hasło: <code>Qwer1234#</code></li>
 </ul>
 
 <h2>Zarejestruj nowe konto:</h2>
+
+<p>Utworzony user</p>
+<ul>
+  <li>E-mail: <code>user@user.pl</code></li>
+  <li>Hasło: <code>string1234</code></li>
+</ul>
 
 <p>Po zarejestrowaniu należy potwierdzić konto linkiem wysłanym na adres email :)</p>
 
