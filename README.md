@@ -43,6 +43,8 @@
   <li>Hasło: <code>Qwer1234#</code></li>
 </ul>
 
+<h2>Zarejestruj nowe konto:</h2>
+
 <p>Po zarejestrowaniu należy potwierdzić konto linkiem wysłanym na adres email :)</p>
 
 <p>Domyślnie konto tworzy się jako użytkownik.</p>
