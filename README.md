@@ -5,46 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LagasinAPI - Opis</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #333;
-    }
-
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border: 1px solid #ddd;
-    }
-
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border: 1px solid #ddd;
-      overflow-x: auto;
-    }
-
-    a {
-      color: #007acc;
-    }
-
-    ul,
-    ol {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-  </style>
+ 
 </head>
 
 <body>
