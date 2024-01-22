@@ -39,11 +39,17 @@
 <p>Konto admina - jest tylko jeden admin:</p>
 
 <ul>
-  <li>E-mail: <code>karwacki.mikolaj123@gmail.com</code></li>
+  <li>E-mail: <code>admin@admin.pl</code></li>
   <li>Hasło: <code>Qwer1234#</code></li>
 </ul>
 
 <h2>Zarejestruj nowe konto:</h2>
+
+<p>Utworzony user</p>
+<ul>
+  <li>E-mail: <code>user@user.pl</code></li>
+  <li>Hasło: <code>string1234</code></li>
+</ul>
 
 <p>Po zarejestrowaniu należy potwierdzić konto linkiem wysłanym na adres email :)</p>
 
